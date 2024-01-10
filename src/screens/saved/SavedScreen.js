@@ -6,6 +6,7 @@ import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { responsiveScreenFontSize, responsiveScreenHeight, responsiveScreenWidth } from 'react-native-responsive-dimensions'
 import { Ionicons } from "@expo/vector-icons";
+import Animation from '../../components/Animation';
 
 const SavedScreen = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
@@ -186,7 +187,9 @@ const SavedScreen = () => {
       />)
     }
      
-      <View style={{ marginVertical: responsiveScreenHeight(2) }} className="space-y-2 ">
+      {
+        savedArticles.length>0?
+          <View style={{ marginVertical: responsiveScreenHeight(2) }} className="space-y-2 ">
         <FlatList
           data={savedArticles}
           showsVerticalScrollIndicator={false}
@@ -196,7 +199,10 @@ const SavedScreen = () => {
             paddingBottom: responsiveScreenHeight(2),
           }}
         />
-      </View>
+
+   
+      </View>:<Animation savedArticle={savedArticles}/>
+      }
 
     </View>
   )
