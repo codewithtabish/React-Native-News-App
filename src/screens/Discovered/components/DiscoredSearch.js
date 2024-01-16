@@ -9,7 +9,7 @@ const DiscoredSearch = () => {
 
 
   return (
-    <View className="mx-4 flex-row justify-between items-center bg-neutral-100 p-2 py-3 rounded-full">
+    <View className="mx-4 flex-row justify-between items-center bg-neutral-100 dark:bg-gray-800 p-2 py-2 rounded-full">
         <TouchableOpacity className="pl-2">
           <MagnifyingGlassIcon
           size={26}
@@ -22,7 +22,7 @@ const DiscoredSearch = () => {
         <View className="pl-4 flex-1">
             <TextInput
             onPress={()=>navi.navigate("Search")}
-            className="tracking-wider font-medium text-black w-full"
+            className="tracking-wider font-medium text-black w-full dark:text-neutral-300"
              // onChangeText={handleTextDebounce}
             placeholder="Search for news"
             placeholderTextColor={"gray"}

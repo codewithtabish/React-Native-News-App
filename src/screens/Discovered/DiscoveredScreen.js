@@ -10,6 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import Loader from '../../components/Loader';
 import { responsiveScreenHeight } from 'react-native-responsive-dimensions';
 import NewsSection from '../../components/NewsSection';
+import BannerAd from '../../components/BannerAd';
 
 
 
@@ -74,6 +75,7 @@ const DiscoveredScreen = () => {
 
 
   return (
+   <>
     <View className="bg-light-lightBackground dark:bg-dark-darkBackground flex-1">
      <DiscoverHeader/>
      <DiscoredSearch/>
@@ -111,7 +113,7 @@ const DiscoveredScreen = () => {
             </View>
           ) :(
             <ScrollView
-            contentContainerStyle={{paddingBottom:responsiveScreenHeight(22)}}
+            contentContainerStyle={{paddingBottom:responsiveScreenHeight(16)}}
             >
             <NewsSection
             data={discoverNews}
@@ -126,6 +128,8 @@ const DiscoveredScreen = () => {
         </View>
 
     </View>
+        <BannerAd/>
+   </>
   )
 }
 

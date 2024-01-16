@@ -10,6 +10,9 @@ import { CardStyleInterpolators } from '@react-navigation/stack';
 const Stack = createStackNavigator()
 
 const AppNavigation = () => {
+
+
+  
 return (
     <NavigationContainer>
 
@@ -23,8 +26,8 @@ return (
 //    screenOptions={{headerShown:false}}
    >
     
-    {/* <Stack.Screen name='Welcome' component={WelcomeScreen}/> */}
-    {/* <Stack.Screen name='Splash' component={SplashScreen}/> */}
+    <Stack.Screen name='Splash' component={SplashScreen}/>
+    <Stack.Screen name='Welcome' component={WelcomeScreen}/>
       <Stack.Screen name="HomeTabs" component={Tabs}
     screenOptions={{headerShown:false}} />  
     <Stack.Screen name='Search' component={SearchScreen}/>

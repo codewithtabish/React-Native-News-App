@@ -19,9 +19,9 @@ const Animation = ({ savedArticle }) => {
     >
     <View  className="flex-row justify-center items-center max-w-[1/2]">
         <LottieView
-        className="w-[100%] h-[100%]"
+        className="w-[90%] h-[100%]"
         ref={animationRef}
-        source={colorScheme==="light"?require('../../assets/anim/searchtwo.json'):require('../../assets/anim/five.json')}
+        source={colorScheme==="light"?require('../../assets/anim/nodata.json'):require('../../assets/anim/five.json')}
         style={styles.animation}
       />
     </View>

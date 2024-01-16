@@ -1,10 +1,11 @@
-import { View, Text } from "react-native";
+import { View, Text ,Animated, Image} from "react-native";
 import React, { useEffect } from "react";
 
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { useNavigation } from "@react-navigation/native";
+import { responsiveScreenHeight,responsiveScreenWidth,responsiveScreenFontSize } from "react-native-responsive-dimensions";
 
 export default function SplashScreens() {
   const navigation = useNavigation();
@@ -24,19 +25,19 @@ export default function SplashScreens() {
   }, [])
   
 
-  // const onLayoutRootView = useCallback(async () => {
-  //   if (fontsLoaded || fontError) {
-  //     await SplashScreen.hideAsync();
-  //   }
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+      await SplashScreen.hideAsync();
+    }
 
-  //   setTimeout(() => {
-  //     navigation.navigate("Welcome"); // Navigate to HomeTab
-  //   }, 3000); // 3 seconds delay
-  // });
+    setTimeout(() => {
+      navigation.navigate("Welcome"); // Navigate to HomeTab
+    }, 3000); // 3 seconds delay
+  });
 
-  // useEffect(() => {
-  //   onLayoutRootView();
-  // }, [fontsLoaded, fontError]);
+  useEffect(() => {
+    onLayoutRootView();
+  }, [fontsLoaded, fontError]);
 
   if (!fontsLoaded) {
     console.log("Not loaded")
@@ -51,7 +52,7 @@ export default function SplashScreens() {
       // onLayout={onLayoutRootView}
       className="flex-1 justify-center items-center bg-white"
     >
-     <Animated.View style={{ opacity }}>
+     <Animated.View style={{ opacity:7 }}>
        <Image source={require("../../../assets/welcome/news-report.png")}
       style={{width:100,height:100,resizeMode:"cover"}}
       />

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View,StatusBar } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View,StatusBar, ScrollView } from 'react-native'
 import React,{useEffect,useState} from 'react'
 import { useColorScheme } from "nativewind";
 import { useQuery } from "@tanstack/react-query";
@@ -9,6 +9,8 @@ import Loader from '../../components/Loader';
 import MiniHeader from '../../components/MiniHeader';
 import BreakingNews from '../../components/BreakingNews';
 import NewsSection from '../../components/NewsSection';
+import BannerAd from '../../components/BannerAd';
+import { responsiveScreenHeight } from 'react-native-responsive-dimensions';
 // import BreakingNews from '../../components/BreakingNews';
 // import { useQuery } from 'react-query';
 
@@ -89,14 +91,18 @@ const HomeScreen = () => {
         isRecommendedLoading?
         null:<View>
           <MiniHeader label={""}/>
-          <NewsSection label={"Breaking News"} data={recommendedNews}/>
+          <ScrollView
+           contentContainerStyle={{paddingBottom:responsiveScreenHeight(34)}}>
+              <NewsSection label={"Breaking News"} data={recommendedNews}/>
+          </ScrollView>
+         
         </View>
         
        }
 
-
     </View>
     
+     <BannerAd/>
  
     </>
  

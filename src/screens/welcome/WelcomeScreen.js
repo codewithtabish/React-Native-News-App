@@ -1,13 +1,41 @@
 import { ImageBackground, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native'
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { responsiveScreenFontSize, responsiveScreenHeight, responsiveScreenWidth } from 'react-native-responsive-dimensions';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from "expo-font";
-
+import { InterstitialAd, TestIds } from 'react-native-google-mobile-ads';
 
 const WelcomeScreen = () => {
   const navigation=useNavigation()
+   const [isLoaded, setIsLoaded] = useState(false);
+     const isDevelopment = __DEV__; // Flag for test or production ad unit IDs
+
+
+useEffect(() => {
+    const interstitial = new InterstitialAd({
+      adUnitID: isDevelopment ? TestIds.INTERSTITIAL : 'ca-app-pub-2101779718159669/9009326985',
+    });
+
+    // interstitial?.load()?.then(() => setIsLoaded(true));
+
+    // return () => interstitial.destroy();
+  }, []);
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('willBlur', () => {
+      if (isLoaded) {
+        interstitial.show().then(() => setIsLoaded(false));
+      } else {
+        console.warn('Ad not loaded yet, navigation skipped');
+      }
+    });
+
+    return unsubscribe;
+  }, [navigation, isLoaded]);
+
+
+
 
 
      const [fontsLoaded, fontError] = useFonts({

@@ -14,7 +14,7 @@ const BreakingNewsCard = ({item,handleClick}) => {
         <Image
         className="rounded-3xl"
          source={{ uri: item?.urlToImage || "https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60", }}
-           style={{ width: width*.9, height:responsiveScreenHeight(25),
+           style={{ width: width*.9, height:responsiveScreenHeight(20),
         resizeMode:"cover" }}
         />
         <LinearGradient

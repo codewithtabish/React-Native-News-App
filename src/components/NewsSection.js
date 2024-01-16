@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useColorScheme } from "nativewind";
 import { useNavigation,useFocusEffect } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import BannerAd from './BannerAd';
 
 
 
@@ -126,7 +127,7 @@ const NewsSection = ({data}) => {
 
             onPress={()=>handlePress(item,index)}
             key={index}
-            className="mb-4 mx-4 space-y-2 flex-row items-center gap-3 shadow-sm py-2"
+            className="mb-4 mx-4 space-y-1 flex-row items-center gap-3 shadow-sm py-1"
             style={{
                 marginLeft:responsiveScreenWidth(1),
             }}
@@ -195,14 +196,20 @@ const NewsSection = ({data}) => {
            </>
         )
     }
+
+
+
+
   return (
-    <View className=" space-y-4 ">
+    <View className=" space-y-2  ">
     <FlatList
     data={data}
+     contentContainerStyle={{ paddingBottom:responsiveScreenHeight(15) }}
     renderItem={renderItem}
     showVerticalScrollIndicator={false}
-    style={{marginBottom:50}}
+ 
     />
+
     </View>
   )
 }

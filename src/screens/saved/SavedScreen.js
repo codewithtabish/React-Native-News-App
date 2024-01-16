@@ -204,6 +204,8 @@ const SavedScreen = () => {
       </View>:<Animation savedArticle={savedArticles}/>
       }
 
+      
+
     </View>
   )
 }

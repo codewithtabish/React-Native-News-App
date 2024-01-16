@@ -19,7 +19,7 @@ const HomeHeader = () => {
 
   return (
     <View className="flex flex-row justify-between  items-center mx-4" style={{
-        marginTop:responsiveScreenHeight(1)
+        marginTop:responsiveScreenHeight(.5)
     }}>
         <View>
             <Text className="text-light-lightPrimary dark:text-dark-darkPrimary italic"
